@@ -1,10 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+
+let db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error"));
 
 const app = express();
 const URI =
-  "mongodb+srv://Thinh:hihi192812@mongodb-qev5p.mongodb.net/test?retryWrites=true&w=majority";
+  "mongodb+srv://mark:Solode123@mongodb-qev5p.mongodb.net/test?retryWrites=true&w=majority";
 
 const connectDB = async () => {
   try {
@@ -19,6 +23,16 @@ const connectDB = async () => {
   }
 };
 
+app.use(
+  session({
+    secret: "Its me",
+    resave: true,
+    saveUninitialized: false,
+    store: new MongoStore({
+      mongooseConnection: db
+    })
+  })
+);
 // Parse data
 app.use(express.urlencoded({ extended: false }));
 

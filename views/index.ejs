@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>index</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
   </head>
-  <body>
-    <h1>Users</h1>
-
-    <h1>Login</h1>
-    <form method="post" action="/login">
+  <body class="d-flex justify-content-center">
+    <div class="main container row">
+    <form method="post" action="/profile">
       <p>
         <label>Username:</label>
         <input type="text" name="username" />
@@ -22,5 +26,43 @@
         <input type="submit" value="Login" />
       </p>
     </form>
+    </div>
+
+    <div class=" main container row">
+      <div>
+        <form method="POST" action="/register">
+          <div class="form-group">
+            <label for="email">Email:</label
+            ><input
+              class="form-control"
+              id="email"
+              type="email"
+              placeholder="abc123@email.com"
+              name="email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="pw">Password:</label
+            ><input
+              class="form-control"
+              id="pw"
+              type="password"
+              placeholder="Mật khẩu"
+              name="password"
+            />
+          </div>
+          <div class="form-group">
+            <label for="pw2">Xác nhận Password:</label
+            ><input
+              class="form-control"
+              id="pw2"
+              type="password"
+              placeholder="Xác nhận mật khẩu"
+              name="confirmPassword"
+            />
+          </div>
+          <button class="btn btn-primary" type="submit">Đăng kí</button>
+        </form>
+      </div>
   </body>
 </html>
