@@ -1,5 +1,5 @@
 # practice-express-ejs-1stday
 ##
 ```
-Basic Authentication and R
+Basic Authentication and Register
 ```
