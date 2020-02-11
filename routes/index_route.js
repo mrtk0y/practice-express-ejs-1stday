@@ -12,23 +12,23 @@ router.post("/profile", function(request, response) {
     if (error) {
       return next(error);
     } else {
+      // console.log(request.body);
       return response.render("profile", {
         title: "Trang cá nhân",
-        name: user.name
+        name: request.body.username
       });
     }
   });
 });
 // GET /profile
 router.get("/profile", function(request, response, next) {
-  // return response.render("profile");
   User.findById(request.session.userId).exec(function(error, user) {
     if (error) {
       return next(error);
     } else {
       return response.render("profile", {
         title: "Trang cá nhân",
-        name: user.name
+        name: request.body.username
       });
     }
   });
